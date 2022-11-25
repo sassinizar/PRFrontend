@@ -1,0 +1,138 @@
+
+
+<mat-card>
+    <mat-card-title>طلب جديد</mat-card-title>
+    <!--<mat-card-subtitle>Start</mat-card-subtitle>-->
+    <mat-card-actions>
+     
+        <div>
+            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="validationServer01" class="form-label">الاسم  </label>
+                <input type="text" class="form-control" id="validationServer01"  required="">
+              </div>
+              <div class="col-md-4">
+                <label for="validationServer02" class="form-label"> اللقب</label>
+                <input type="text" class="form-control" id="validationServer02"  required="">
+              </div>
+              <div class="col-md-4">
+                <label for="validationServerUsername" class="form-label">رقم ب.ت.و </label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationServer01" class="form-label">تاريخ الولادة  </label>
+                <input type="text" class="form-control" id="validationServer01"  required="">
+              </div>
+              <div class="col-md-4">
+                <label for="validationServer04" class="form-label">الوزارة</label>
+                <select class="form-select" id="validationServer04" required="">
+                  <option selected="" disabled="" value="">اختر...</option>
+                  <option>وزارة العدل</option>
+                  <option>وزارة التجارة</option>
+                  <option>وزارة المالية</option>
+                  <option>وزارة الطاقة</option>
+                  <option>وزارة الشؤون الإجتماعية</option>
+                  <option>وزارة الدفاع</option>
+                  <option>وزارة السياحة</option>
+
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="validationServerUsername" class="form-label">الخطة الوظيفية</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="validationServer05" class="form-label">عدد المهمة</label>
+                <input type="text" class="form-control" id="validationServer05" required="">
+              </div>
+              <div class="col-md-4">
+               
+                <mat-form-field appearance="fill">
+                  <mat-label>تاريخ بداية المهمة</mat-label>
+                  <input  matInput [matDatepicker]="picker"  >
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                                
+              </div>
+             
+              <div class="col-md-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>تاريخ إنتهاء المهمة</mat-label>
+                  <input  matInput [matDatepicker]="picker1"  >
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-4">
+                <label for="validationServer04" class="form-label">الوجهة</label>
+                <select class="form-select" id="validationServer04" required="">
+                  <option selected="" disabled="" value="">اختر...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="validationServer01" class="form-label">موضوع المهمة   </label>
+                <input type="text" class="form-control" id="validationServer01" value="..." required="">
+                
+              </div>
+             
+              <div class="col-md-4">
+                <label for="validationServerUsername" class="form-label">  عدد الجواز </label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
+                  
+                </div>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>تاريخ  الإصدار</mat-label>
+                  <input  matInput [matDatepicker]="picker2"  >
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+           
+              <div class="col-md-4">
+                <mat-form-field appearance="fill">
+                  <mat-label>تاريخ إنتهاء الصلوحية</mat-label>
+                  <input  matInput [matDatepicker]="picker3"  >
+                  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                  <mat-datepicker #picker3></mat-datepicker>
+                </mat-form-field>
+              </div>
+              
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-lg"> حفظ</button>
+                  
+                  
+                    <button type="button" class="btn btn-danger btn-lg">إلغاء </button>
+                  
+                </div>
+                
+               
+            <!--
+               <div >
+                <button class="btn btn-primary" type="submit">حفظ </button>
+                <button class="btn btn-danger">إلغاء </button>
+              </div>
+            --> 
+            </form>
+            </div></div>
+    
+          </div>
+     
+    <!--  <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>-->
+    </mat-card-actions>
+  </mat-card>  
+
+  
+
+
