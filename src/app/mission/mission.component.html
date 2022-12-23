@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>مهمة جديدة</h1>
+<div mat-dialog-content>
+    <div class="card">
+        <!--<h1 class="card-header">المهمة</h1> 
+        <mat-card-subtitle>Start</mat-card-subtitle>-->
+        <div class="card-body">
+            <div>
+              <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+                <form [formGroup]="missionGroup" class="row g-3">
+                  <div class="col-md-4">
+                    <label for="validationServer05" class="form-label">cin</label>
+                    <input type="text" formControlName="cin" class="form-control" id="validationServer05">
+                  </div>
+                      <div class="col-md-4">
+                        <label for="validationServer05" class="form-label">عدد المهمة</label>
+                        <input type="text" formControlName="numord" class="form-control" id="validationServer05" required="">
+                      </div>
+                      <div class="col-md-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>تاريخ بداية المهمة</mat-label>
+                          <input formControlName="dateDebut"  matInput [matDatepicker]="picker"  >
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>تاريخ إنتهاء المهمة</mat-label>
+                          <input  formControlName="dateFin" matInput [matDatepicker]="picker1"  >
+                          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                          <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationServer04" class="form-label">الوجهة</label>
+                        <select formControlName="destination" class="form-select" id="validationServer04" required="">
+                          <option selected="" disabled="" value="">اختر...</option>
+                          <option>France</option>
+                          <option>USA</option>
+                          <option>Chine</option>
+                          <option>Japan</option>
+                          <option>Argentine</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="validationServer01" class="form-label">موضوع المهمة   </label>
+                        <input formControlName="sujet" type="text" class="form-control" id="validationServer01" required="">
+                      </div>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-success me-md-2" (click)="saveMission()" type="button">حفظ</button>
+                        <button class="btn btn-danger" type="button">إلغاء</button>
+                      </div> 
+                </form>
+                </div></div> 
+              </div>        
+        <!--  <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>-->
+        </div>
+      </div>
+</div>

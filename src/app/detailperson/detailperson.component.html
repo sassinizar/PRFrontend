@@ -1,0 +1,80 @@
+
+    <div >  
+        <div class="bd-example">
+         <div class="alert alert-primary" role="alert">
+            <mat-card>
+                <mat-card-title><p class="h3"> <img src="https://img.icons8.com/ios/50/null/checked-identification-documents.png"/>الهوية </p></mat-card-title>
+                <mat-card-actions>
+                  <div>
+                      <h1> رقم بطاقة التعريف الوطنية   :{{personne.cin}}</h1>
+                      <h1>الإسم:{{personne.nom}}</h1>
+                      <h1> اللقب :{{personne.prenom}}</h1>
+                      <h1>الإدارة :{{personne.direction}}</h1>
+                      <h1>الخطة :{{personne.fonction}}</h1>
+                    </div>        
+                  </mat-card-actions>
+           </mat-card> 
+        </div>
+    </div>
+
+
+
+    <div >  
+        <div class="bd-example">
+         <div class="alert alert-primary" role="alert">
+            <mat-card>
+                <mat-card-title><p class="h3"> <img src="https://img.icons8.com/officel/40/null/combi-ticket.png"/>المهمة</p></mat-card-title>
+                   <mat-card-actions>
+                    <table  class=" table table-hover">
+                        <thead>
+                        <tr>
+                        <th scope="col"> عدد المهمة </th>
+                        <th scope="col">الإدارة</th>
+                        <th scope="col">تاريخ بداية المهمة</th>
+                        <th scope="col">تاريخ إنتهاء المهمة</th>
+                        <th scope="col">الوجهة </th>
+                        </tr>
+                        </thead>
+                        <tbody>                      
+                            <tr class="table-light" *ngFor="let mission of missions.reverse()" >
+                                    <td scope="row">{{mission.numOrd}}</td>
+                                    <td>{{mission.dateDebut}}</td>
+                                    <td>{{mission.dateFin}} </td>
+                                    <td>{{mission.destination}}</td>
+                                    <td>{{mission.motif}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-actions>
+            </mat-card> 
+       </div>
+</div>
+
+
+    <div >  
+        <div class="bd-example">
+         <div class="alert alert-primary" role="alert">
+    <mat-card>
+      <mat-card-title><p class="h3"><img src="https://img.icons8.com/external-nawicon-detailed-outline-nawicon/64/null/external-passport-travel-nawicon-detailed-outline-nawicon.png"/>  الجواز </p></mat-card-title>
+      <mat-card-actions>
+        <table  class=" table table-hover">
+            <thead>
+            <tr>
+              <th scope="col"> رقم الجواز  </th>
+              <th scope="col">تاريخ الإصدار</th>
+              <th scope="col">تاريخ الإنتهاء</th>
+            </tr>
+            </thead>
+            <tbody>                      
+                <tr class="table-light" *ngFor="let passeport of passeports.reverse()" >
+                    <td scope="row">{{passeport.numPasseport}}</td>
+                    <td>{{passeport.dateEmission}}</td>
+                    <td>{{passeport.dateValidite}} </td>
+               </tr>
+            </tbody>
+        </table>
+    </mat-card-actions>
+</mat-card> 
+</div>
+</div>
+

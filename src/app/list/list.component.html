@@ -1,102 +1,58 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          
-          <div class="btn-group-justified ">
-            <div class="btn-group me-6">
-              <button type="button" class="btn  btn-outline-primary btn-lg">المخزنة</button><div></div>
-              <button type="button" class="btn  btn-outline-primary btn-lg">المسلمة</button><div></div>
-              <button type="button" class="btn  btn-outline-primary btn-lg">الملغات</button><div></div>
-            </div>
-           
-          </div> 
-        </div>
-        
-        <div class="row">
-          <mat-card>
-
-      <mat-card-title> جوازات الخاصة المسلمة</mat-card-title>
-    <!--<mat-card-subtitle>Start</mat-card-subtitle>-->
+<div class="row">
+  <div >  
+    <div class="bd-example">
+     <div class="alert alert-primary" role="alert">
+  <mat-card>
+    <mat-card-title><div class="shadow pb-3 mb-4 bg-body rounded">الجوازات الخاصة المسلمة </div></mat-card-title>
     <mat-card-actions>
-      <div class="mb-3 col-md-3">
+      <div class="mb-3 col-md-6">
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPassword"  placeholder="بحث">
+          <input (ngModelChange)="searchPersons(key.value)"  #key="ngModel" 
+          ngModel name="key" class="form-control" placeholder="بحث">
         </div>
       </div>
       <div class="bd-example">
-        <table class="table table-hover">
+        <table  class=" table table-hover">
           <thead>
           <tr>
-            <th scope="col">عدد الضبط</th>
-            <th scope="col">التاريخ</th>
-            <th scope="col">الهوية</th>
-            <th scope="col">المهمة</th>
-            <th scope="col">تاريخ البداية</th>
-            <th scope="col">تاريخ النهاية</th>
-            <th scope="col">رقم الجواز</th>
+            <th scope="col">ب ت و </th>
+            <th scope="col">الإسم</th>
+            <th scope="col">القب</th>
+            <th scope="col">الصفة</th>
+            <th scope="col">الإدارة </th>
             <th scope="col"> </th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
-            <tr class="table-light">
-              <th scope="row">1</th>
-              <td>22/12/2022</td>
-              <td>فلان بن فلان</td>
-              <td>مهمة رسمية</td>
-              <td>24/12/2022</td>
-              <td>28/12/2022</td>
-              <td>x12556</td>
-              <td><a href="#"><i class="bi bi-trash"></i></a></td>
-              <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-              <td><a href="#"><i class="bi bi-filter-square"></i></a></td>
-            </tr>
-          
-          <tr class="table-light">
-            <th scope="row">2</th>
-              <td>22/12/2022</td>
-              <td>فلان بن فلان</td>
-              <td>مهمة رسمية</td>
-              <td>24/12/2022</td>
-              <td>28/12/2022</td>
-              <td>x12556</td>
-              <td><a href="#"><i class="bi bi-trash"></i></a></td>
-              <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-              <td><a href="#"><i class="bi bi-filter-square"></i></a></td>
-          </tr>
-          <tr class="table-light">
-            <th scope="row">3</th>
-            <td>22/12/2022</td>
-            <td>فلان بن فلان</td>
-            <td>مهمة رسمية</td>
-            <td>24/12/2022</td>
-            <td>28/12/2022</td>
-            <td>x12556</td>
-            <td><a href="#"><i class="bi bi-trash"></i></a></td>
-            <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-            <td><a href="#"><i class="bi bi-filter-square"></i></a></td>
-          </tr>
-          <tr class="table-light">
-            <th scope="row">4</th>
-              <td>22/12/2022</td>
-              <td>فلان بن فلان</td>
-              <td>مهمة رسمية</td>
-              <td>24/12/2022</td>
-              <td>28/12/2022</td>
-              <td>x12556</td>
-              <td><a href="#"><i class="bi bi-trash"></i></a></td>
-              <td><a href="#"><i class="bi bi-pencil-square"></i></a></td>
-              <td><a href="#"><i class="bi bi-filter-square"></i></a></td>
+                            
+          <tr class="table-light" *ngFor="let personne of personnes.reverse()  |
+                                         paginate: { itemsPerPage: 5,
+                                         currentPage: page,
+                                         totalItems: totalLength
+                                        }" 
+                                         >
+
+              <td scope="row">{{personne.cin}}</td>
+              <td>{{personne.nom}}</td>
+              <td> {{personne.prenom}}</td>
+              <td>{{personne.fonction}}</td>
+              <td>{{personne.direction}}</td>
+              <td><button type="button" (click) ="deletePersonne(personne.cin)" class="btn btn-sm btn-light"><i class="bi bi-trash"></i></button></td>
+              <td><button type="button" class="btn btn-sm btn-light" (click)="openDialog()"><i class="bi bi-pencil-square "></i></button></td>
+              <td><button type="button" class="btn btn-sm btn-light" (click)="personDetails(personne.cin)"><i class="bi bi-filter-square"></i></button></td>
           </tr>
           </tbody>
         </table>
         </div>
-     
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     <!--  <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>-->
     </mat-card-actions>
   </mat-card>  
 
-  
+  </div>
     </div>
     
   

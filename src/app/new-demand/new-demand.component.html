@@ -1,138 +1,176 @@
-
-
-<mat-card>
-    <mat-card-title>طلب جديد</mat-card-title>
-    <!--<mat-card-subtitle>Start</mat-card-subtitle>-->
-    <mat-card-actions>
-     
-        <div>
-            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
-            <form class="row g-3">
-              <div class="col-md-4">
-                <label for="validationServer01" class="form-label">الاسم  </label>
-                <input type="text" class="form-control" id="validationServer01"  required="">
+<div class="bd-example">
+  <div class="alert alert-success" role="alert">
+<div class="card">
+  <h1 class="card-header"> الموظف </h1>
+    <div class="card-body">
+        <div class="bd-example-snippet bd-code-snippet">
+          <div class="bd-example">
+          <form [formGroup]="personGroup" class="form-floating mb-3">
+            <div class="col-md-6">
+              <label for="validationServerUsername" class="form-label">رقم ب.ت.و </label>
+              <div class="input-group has-validation">
+                <input type="text" formControlName="cin" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
               </div>
-              <div class="col-md-4">
-                <label for="validationServer02" class="form-label"> اللقب</label>
-                <input type="text" class="form-control" id="validationServer02"  required="">
-              </div>
-              <div class="col-md-4">
-                <label for="validationServerUsername" class="form-label">رقم ب.ت.و </label>
-                <div class="input-group has-validation">
-                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="validationServer01" class="form-label">تاريخ الولادة  </label>
-                <input type="text" class="form-control" id="validationServer01"  required="">
-              </div>
-              <div class="col-md-4">
-                <label for="validationServer04" class="form-label">الوزارة</label>
-                <select class="form-select" id="validationServer04" required="">
-                  <option selected="" disabled="" value="">اختر...</option>
-                  <option>وزارة العدل</option>
-                  <option>وزارة التجارة</option>
-                  <option>وزارة المالية</option>
-                  <option>وزارة الطاقة</option>
-                  <option>وزارة الشؤون الإجتماعية</option>
-                  <option>وزارة الدفاع</option>
-                  <option>وزارة السياحة</option>
-
-                </select>
-              </div>
-              <div class="col-md-4">
-                <label for="validationServerUsername" class="form-label">الخطة الوظيفية</label>
-                <div class="input-group has-validation">
-                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="validationServer05" class="form-label">عدد المهمة</label>
-                <input type="text" class="form-control" id="validationServer05" required="">
-              </div>
-              <div class="col-md-4">
-               
-                <mat-form-field appearance="fill">
-                  <mat-label>تاريخ بداية المهمة</mat-label>
-                  <input  matInput [matDatepicker]="picker"  >
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-                                
-              </div>
-             
-              <div class="col-md-4">
-                <mat-form-field appearance="fill">
-                  <mat-label>تاريخ إنتهاء المهمة</mat-label>
-                  <input  matInput [matDatepicker]="picker1"  >
-                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                  <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-              </div>
-
-              <div class="col-md-4">
-                <label for="validationServer04" class="form-label">الوجهة</label>
-                <select class="form-select" id="validationServer04" required="">
-                  <option selected="" disabled="" value="">اختر...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label for="validationServer01" class="form-label">موضوع المهمة   </label>
-                <input type="text" class="form-control" id="validationServer01" value="..." required="">
-                
-              </div>
-             
-              <div class="col-md-4">
-                <label for="validationServerUsername" class="form-label">  عدد الجواز </label>
-                <div class="input-group has-validation">
-                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
-                  
-                </div>
-              </div>
-              <div class="col-md-4">
-                <mat-form-field appearance="fill">
-                  <mat-label>تاريخ  الإصدار</mat-label>
-                  <input  matInput [matDatepicker]="picker2"  >
-                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
-              </div>
-           
-              <div class="col-md-4">
-                <mat-form-field appearance="fill">
-                  <mat-label>تاريخ إنتهاء الصلوحية</mat-label>
-                  <input  matInput [matDatepicker]="picker3"  >
-                  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-                  <mat-datepicker #picker3></mat-datepicker>
-                </mat-form-field>
-              </div>
-              
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-primary btn-lg"> حفظ</button>
-                  
-                  
-                    <button type="button" class="btn btn-danger btn-lg">إلغاء </button>
-                  
-                </div>
-                
-               
-            <!--
-               <div >
-                <button class="btn btn-primary" type="submit">حفظ </button>
-                <button class="btn btn-danger">إلغاء </button>
-              </div>
-            --> 
-            </form>
-            </div></div>
-    
+            </div>
+            <div class="col-md-6">
+              <label for="validationServer01" class="form-label">الاسم  </label>
+                  <input type="text" formControlName="nom" class="form-control" id="validationServer01"  required="">
+            </div>
+             <div class="col-md-6">
+            <label for="validationServer02" class="form-label"> اللقب</label>
+             <input type="text" formControlName="prenom" class="form-control" id="validationServer02"  required="">
+        </div>
+        
+      <!--<div class="col-md-4">
+          <label for="validationServer01" class="form-label">تاريخ الولادة  </label>
+          <input type="text" class="form-control" id="validationServer01"  required="">
+        </div>-->  
+        <div class="col-md-6">
+          <label for="validationServer04" class="form-floating">الوزارة</label>
+          <select formControlName="direction" class="form-select" id="validationServer04" required="">
+            <option>وزارة العدل</option>
+            <option>وزارة التجارة</option>
+            <option>وزارة المالية</option>
+            <option>وزارة الطاقة</option>
+            <option>وزارة الشؤون الإجتماعية</option>
+            <option>وزارة الدفاع</option>
+            <option>وزارة السياحة</option>
+            <label for="floatingSelectGrid">Works with selects</label>
+          </select>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="validationServerUsername" class="form-label">الخطة الوظيفية</label>
+          <div class="input-group has-validation">
+            <input type="text" formControlName="fonction" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
           </div>
-     
-    <!--  <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>-->
-    </mat-card-actions>
-  </mat-card>  
+        </div>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-success me-md-2" (click)="savePerson()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalDefault">حفظ</button>
+          <button class="btn btn-danger" type="button">إلغاء</button>
+        </div>
+        
 
+
+
+
+      <!--
+         <div >
+          <button class="btn btn-primary" type="submit">حفظ </button>
+          <button class="btn btn-danger">إلغاء </button>
+        </div>
+      --> 
+
+      </form>
+    </div>
+  </div>
+
+<!--
+<div class="card">
+  <h1 class="card-header">المهمة</h1> 
+  <mat-card-subtitle>Start</mat-card-subtitle>
+  <div class="card-body">
+      <div>
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+          <form class="row g-3">
+                <div class="col-md-4">
+                  <label for="validationServer05" class="form-label">عدد المهمة</label>
+                  <input type="text" class="form-control" id="validationServer05" required="">
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>تاريخ بداية المهمة</mat-label>
+                    <input  matInput [matDatepicker]="picker"  >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>تاريخ إنتهاء المهمة</mat-label>
+                    <input  matInput [matDatepicker]="picker1"  >
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationServer04" class="form-label">الوجهة</label>
+                  <select class="form-select" id="validationServer04" required="">
+                    <option selected="" disabled="" value="">اختر...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationServer01" class="form-label">موضوع المهمة   </label>
+                  <input type="text" class="form-control" id="validationServer01" required="">
+                </div>
+          
+             <div >
+              <button class="btn btn-primary" type="submit">حفظ </button>
+              <button class="btn btn-danger">إلغاء </button>
+            </div>
+          
+          </form>
+          </div></div>
   
+        </div>
+   
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </div>
+</div>
+-->
+<!--
+<div class="card">
+  <h1 class="card-header">الجواز </h1>
+     <mat-card-subtitle>Start</mat-card-subtitle>
+  <div class="card-body">
+      <div>
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+          <form class="row g-3">
+            <div class="col-md-4">
+              <label for="validationServerUsername" class="form-label">  عدد الجواز </label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
+                
+              </div>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="fill">
+                <mat-label>تاريخ  الإصدار</mat-label>
+                <input  matInput [matDatepicker]="picker2"  >
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+            </div>
+         
+            <div class="col-md-4">
+              <mat-form-field appearance="fill">
+                <mat-label>تاريخ إنتهاء الصلوحية</mat-label>
+                <input  matInput [matDatepicker]="picker3"  >
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+              </mat-form-field>
+            </div>
+          
+             <div >
+              <button class="btn btn-primary" type="submit">حفظ </button>
+              <button class="btn btn-danger">إلغاء </button>
+            </div>
+          
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-success me-md-2" type="button">حفظ</button>
+            <button class="btn btn-danger" type="button">إلغاء</button>
+          </div>
+          </form>
+          </div>
+        </div>
+        </div>  
+ 
+    </div>
+  </div>
 
+-->
 
+</div>
