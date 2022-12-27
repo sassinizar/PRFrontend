@@ -27,6 +27,7 @@ import { NgModule, AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailpersonComponent } from './detailperson/detailperson.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DetailpersonComponent } from './detailperson/detailperson.component';
     MoukhazanaComponent,
     ReglesComponent,
     MissionComponent,
-    DetailpersonComponent
+    DetailpersonComponent,
+    AccueilComponent
     
   ],
   imports: [

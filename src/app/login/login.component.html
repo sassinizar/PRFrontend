@@ -1,1 +1,31 @@
-<p>heheheheh</p>>
+<div class="container-fluid text-center col-md-4">
+    
+    <main class="form-signin w-100 m-auto">
+      <form (ngSubmit)="userLogin()">
+        <img class="mb-6" src="/assets/logo.jpg" alt="" width="200" height="200">
+        <h1 class="h3 mb-3 fw-normal">  الإدارة العامة لشرطة الحدود والأجانب</h1>
+    
+        <div class="form-floating">
+          <input type="text" [(ngModel)]="user.userID" class="form-control"  id="userId" placeholder="name">
+          <label for="userId"> إسم المستخدم</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" [(ngModel)]="user.password" class="form-control"  id="password" placeholder="Password">
+          <label for="password">كلمة السر</label>
+        </div>
+    
+       <!-- <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>-->
+        <button class="w-100 btn btn-lg btn-primary" type="submit"> دخول</button>
+        <p class="mt-5 mb-3 text-muted">© 2022-2023</p>
+      </form>
+    </main>
+    
+    
+        
+      
+    
+</div>
