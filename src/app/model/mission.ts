@@ -1,8 +1,8 @@
 export interface Mission {
 
-    numOrd: string;
+    numOrd: String;
     dateDebut: Date;
     dateFin: Date;
-    destination: string;
-    motif: string;
+    destination: String;
+    motif: String;
 }

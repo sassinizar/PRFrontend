@@ -12,8 +12,7 @@ import { TestttComponent } from './testtt/testtt.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'listDemand', component: ListComponent},
+  {path: '', component: LoginComponent},
   {path: 'newDemand', component: NewDemandComponent},
   {path: 'listDemand', component: ListComponent},
   {path: 'statsDemand', component: StatsComponent},

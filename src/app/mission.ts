@@ -1,8 +1,7 @@
 export class Mission {
-     numOrd!: string;
+     numOrd!: String;
 	 dateDebut!: Date;
 	 dateFin!: Date;
-	 destination!: string;
-	 motif!: string;
-     cin!: BigInteger;
+	 destination!: String;
+	 motif!: String;
 }

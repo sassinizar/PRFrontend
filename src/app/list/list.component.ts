@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,7 @@ import { MissionComponent } from '../mission/mission.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailpersonComponent } from '../detailperson/detailperson.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MissionService } from '../services/mission.service';
 
 @Component({
   selector: 'app-list',
@@ -18,29 +19,52 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
+cin: any;  
+mission: any; 
 personnes: any;
 personne! : Personne;
 totalLength: any;
 pageNumber: Number = 1;
 page: number = 1;
 
-  constructor(private personneService: PersonneService, private dialog: MatDialog, private router: Router) { }
+
+
+  constructor(private personneService: PersonneService, 
+     private dialog: MatDialog,
+     private router: Router,
+     private missionService: MissionService
+    ) { }
 
   ngOnInit(): void {
       this.getPersons();
   }
 
-  openDialog(){
-    this.dialog.open(MissionComponent, {
+// open the dialog mission component
+  openMissionDialog(cin: number){
+    let dialogRef = this.dialog.open(MissionComponent, {
       width : "80%",
-      height: "70%"
+      height: "70%",
+      data :{
+           cin
+      }
     });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+    
+      const dialogSubmitSubscription = 
+      dialogRef.componentInstance.submitClicked.subscribe(result => {
+      dialogSubmitSubscription.unsubscribe();
+    });
+    
+   
   }
 
+//the details of person
   personDetails(cin: number){
     this.router.navigate(['details', cin])
   }
 
+//get all the persons
   private getPersons(){
     this.personneService.getPersonsList().subscribe(data => {
       this.personnes = data ; 
@@ -49,6 +73,7 @@ page: number = 1;
       )
   }
 
+//search a person
   public searchPersons(key: string): void {
     console.log(key);
     const result: Personne[] = [];
@@ -68,13 +93,12 @@ page: number = 1;
     }
   }
 
+//delete a person
   deletePersonne(id: number){
     this.personneService.deletePerson(id).subscribe(data => {
       console.log(data);
       this.getPersons();
-    })
+    });
   }
 
-
- 
 }

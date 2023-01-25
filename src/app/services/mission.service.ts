@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Mission } from '../mission';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Mission } from '../mission';
 })
 export class MissionService {
 
-  private baseURL="http://localhost:8080/api/v1/missions";
+  private baseURL="http://localhost:8080/api/v1";
 
   constructor(private httpClient: HttpClient) {
 
@@ -18,14 +18,17 @@ export class MissionService {
     return this.httpClient.get<Mission[]>(`${this.baseURL}`);
   };
 
-  createMission(mission: Mission): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`,mission)
+  createMission(cin: number, mission: Mission){
+    return this.httpClient.post(`${this.baseURL}/personne/${cin}/mission`,mission)
+    .pipe(map((res: any)=>{
+      return res;
+    }))
+    console.log(mission)
   }
 
   getMissionById(id: number): Observable<Mission>{
     return this.httpClient.get<Mission>(`${this.baseURL}/${id}`);
   }
-
 
   updateMission(id: number, mission: Mission): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`, mission);

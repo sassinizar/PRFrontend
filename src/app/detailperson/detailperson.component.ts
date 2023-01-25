@@ -27,14 +27,18 @@ ngOnInit(): void {
 
   this.personneService.getPersonById(this.cin).subscribe( data => {
     this.personne = data;
+    console.log(this.personne);
+
   })
 
   this.personneService.getMissionByPerson(this.cin).subscribe( data => {
     this.missions = data;
+    console.log(this.missions);
   })
 
   this.personneService.getPasseportsByPerson(this.cin).subscribe( data => {
     this.passeports = data;
+    
   })
   }
 

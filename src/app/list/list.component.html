@@ -27,7 +27,7 @@
           </thead>
           <tbody>
                             
-          <tr class="table-light" *ngFor="let personne of personnes.reverse()  |
+          <tr class="table-light" *ngFor="let personne of personnes  |
                                          paginate: { itemsPerPage: 5,
                                          currentPage: page,
                                          totalItems: totalLength
@@ -40,7 +40,7 @@
               <td>{{personne.fonction}}</td>
               <td>{{personne.direction}}</td>
               <td><button type="button" (click) ="deletePersonne(personne.cin)" class="btn btn-sm btn-light"><i class="bi bi-trash"></i></button></td>
-              <td><button type="button" class="btn btn-sm btn-light" (click)="openDialog()"><i class="bi bi-pencil-square "></i></button></td>
+              <td><button type="button" class="btn btn-sm btn-light" (click)="openMissionDialog(personne.cin)"><i class="bi bi-pencil-square "></i></button></td>
               <td><button type="button" class="btn btn-sm btn-light" (click)="personDetails(personne.cin)"><i class="bi bi-filter-square"></i></button></td>
           </tr>
           </tbody>

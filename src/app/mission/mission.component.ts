@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { Mission } from '../mission';
+import { Personne } from '../personne';
 import { MissionService } from '../services/mission.service';
 
 @Component({
@@ -11,29 +14,50 @@ import { MissionService } from '../services/mission.service';
 })
 export class MissionComponent implements OnInit {
 
+  cin!: number;
   missionGroup!: FormGroup;
+  mission= new Mission();
 
-  constructor(private missionService: MissionService, private router: Router, private formBuilder: FormBuilder, private dialogRef: MatDialogRef<MissionComponent>) 
+  @Output() submitClicked = new EventEmitter<any>();
+  
+  constructor(private missionService: MissionService, 
+    private route: ActivatedRoute, 
+    private formBuilder: FormBuilder, 
+    private dialogRef: MatDialogRef<MissionComponent>,
+    private changeDetector: ChangeDetectorRef,
+    @Inject(MAT_DIALOG_DATA) public data: any ) 
   { }
 
   ngOnInit(): void {
     this.missionGroup = this.formBuilder.group({
-      numord : ['',Validators.required],
-      dateDebut : ['',Validators.required],
-      dateFin : ['',Validators.required],
-      destination :['',Validators.required],
-      sujet : ['',Validators.required],
-      cin :['',Validators.required]
+      numOrd : [''],
+      dateDebut : [''],
+      dateFin : [''],
+      destination :[''],
+      motif : ['']
     })
   }
-  
+
+  //save the mission
   saveMission(){   
-    this.missionService.createMission(this.missionGroup.value).subscribe({
-           next:(res)=>{
-               alert("تمت إضافة ");
-               this.missionGroup.reset(); 
-               this.dialogRef.close('save');
-               }
-           },)
-   }  
+
+    this.mission.numOrd = this.missionGroup.value.numOrd;
+    this.mission.dateFin = this.missionGroup.value.dateFin;
+    this.mission.dateDebut = this.missionGroup.value.dateDebut;
+    this.mission.destination = this.missionGroup.value.destination;
+    this.mission.motif = this.missionGroup.value.motif;
+
+    this.missionService.createMission(this.data.cin, this.mission);
+  
+     // alert(' تم الحفظ');
+      this.submitClicked.emit(this.mission);
+} 
+
+ onCancel(){
+  this.dialogRef.close();
+ }
+
+  ngAfterViewChecked() {
+    this.changeDetector.detectChanges();
+  }
 }

@@ -17,8 +17,6 @@
         </div>
     </div>
 
-
-
     <div >  
         <div class="bd-example">
          <div class="alert alert-primary" role="alert">
@@ -29,14 +27,14 @@
                         <thead>
                         <tr>
                         <th scope="col"> عدد المهمة </th>
-                        <th scope="col">الإدارة</th>
                         <th scope="col">تاريخ بداية المهمة</th>
                         <th scope="col">تاريخ إنتهاء المهمة</th>
                         <th scope="col">الوجهة </th>
+                        <th scope="col">السبب</th>
                         </tr>
                         </thead>
                         <tbody>                      
-                            <tr class="table-light" *ngFor="let mission of missions.reverse()" >
+                            <tr class="table-light" *ngFor="let mission of missions" >
                                     <td scope="row">{{mission.numOrd}}</td>
                                     <td>{{mission.dateDebut}}</td>
                                     <td>{{mission.dateFin}} </td>
@@ -66,7 +64,7 @@
             </tr>
             </thead>
             <tbody>                      
-                <tr class="table-light" *ngFor="let passeport of passeports.reverse()" >
+                <tr class="table-light" *ngFor="let passeport of passeports" >
                     <td scope="row">{{passeport.numPasseport}}</td>
                     <td>{{passeport.dateEmission}}</td>
                     <td>{{passeport.dateValidite}} </td>
